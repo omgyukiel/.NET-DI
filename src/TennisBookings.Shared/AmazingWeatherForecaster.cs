@@ -7,7 +7,7 @@ using TennisBookings.Shared.Weather;
 
 namespace TennisBookings.Shared
 {
-	public class AmazingWeatherForecaster
+	public class AmazingWeatherForecaster : IWeatherForecaster
 	{
 		public Task<WeatherResult> GetCurrentWeatherAsync(string city)
 		{
