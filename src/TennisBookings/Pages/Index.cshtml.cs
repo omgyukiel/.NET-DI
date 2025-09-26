@@ -6,10 +6,12 @@ namespace TennisBookings.Pages
     public class IndexModel : PageModel
     {
 		private readonly IWeatherForecaster _weatherForecaster;
+		private readonly ILogger<IndexModel> _logger;
 
-		public IndexModel(IWeatherForecaster weatherForecaster)
+		public IndexModel(IWeatherForecaster weatherForecaster, ILogger<IndexModel> logger)
 		{
 			_weatherForecaster = weatherForecaster;
+			_logger = logger;
 		}
 
 		public string WeatherDescription { get; private set; } =
@@ -52,7 +54,7 @@ namespace TennisBookings.Pages
             }
             catch
             {
-				// TODO
+				_logger.LogError("Oh no!!");
 			}
         }
     }
